@@ -3,395 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renewable Society Project</title>
+    <title>Renewable Society</title>
     <style>
-        /* Modern Design System & Colors */
-        :root {
-            --primary-bg: #0f172a;
-            --card-bg: #1e293b;
-            --accent-green: #10b981;
-            --accent-blue: #0ea5e9;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-
-        body {
-            background-color: var(--primary-bg);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        /* Header & Title Section */
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #1e1b4b, #0f172a);
-            border-radius: 16px;
-            margin-bottom: 30px;
-            border: 1px solid #312e81;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            color: var(--text-main);
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
-        }
-
-        header p {
-            color: var(--accent-blue);
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        /* Team Members Grid */
-        .team-section {
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--text-main);
-            border-left: 4px solid var(--accent-green);
-            padding-left: 12px;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-        }
-
-        .member-card {
-            background-color: var(--card-bg);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid #334155;
-            transition: transform 0.2s;
-        }
-
-        .member-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--accent-blue);
-        }
-
-        .member-name {
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: var(--text-main);
-        }
-
-        .member-role {
-            font-size: 0.9rem;
-            color: var(--accent-green);
-            margin-top: 4px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Features Interactive Navigation Tabs */
-        .tabs-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .tab-btn {
-            background-color: var(--card-bg);
-            color: var(--text-muted);
-            border: 1px solid #334155;
-            padding: 12px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.2s;
-            flex: 1;
-            min-width: 160px;
-            text-align: center;
-        }
-
-        .tab-btn:hover {
-            color: var(--text-main);
-            border-color: var(--text-muted);
-        }
-
-        .tab-btn.active {
-            background-color: var(--accent-blue);
-            color: var(--primary-bg);
-            border-color: var(--accent-blue);
-        }
-
-        /* Tab Content Panel Display Configuration */
-        .tab-panel {
-            display: none;
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 16px;
-            border: 1px solid #334155;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-        }
-
-        .tab-panel.active {
-            display: block;
-            animation: fadeIn 0.4s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .panel-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #334155;
-            padding-bottom: 15px;
-        }
-
-        .panel-icon {
-            font-size: 2rem;
-        }
-
-        .panel-header h3 {
-            font-size: 1.6rem;
-            color: var(--text-main);
-        }
-
-        .panel-content p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            margin-bottom: 20px;
-        }
-
-        /* Tech Specs Bullet List Details */
-        .tech-specs {
-            background-color: rgba(15, 23, 42, 0.6);
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px dashed #475569;
-        }
-
-        .tech-specs h4 {
-            color: var(--accent-green);
-            margin-bottom: 10px;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .tech-specs ul {
-            list-style-type: none;
-        }
-
-        .tech-specs li {
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-            color: var(--text-main);
-            font-size: 0.95rem;
-        }
-
-        .tech-specs li::before {
-            content: "⚡";
-            position: absolute;
-            left: 0;
-            top: 1px;
-            font-size: 0.9rem;
-        }
-
-        /* Footer Info */
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            border-top: 1px solid #1e293b;
-        }
+        :root { --bg: #0f172a; --card: #1e293b; --green: #10b981; --blue: #0ea5e9; --text: #f8fafc; --muted: #94a3b8; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        body { background-color: var(--bg); color: var(--text); padding: 20px; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { text-align: center; padding: 30px; background: #1e1b4b; border-radius: 12px; margin-bottom: 25px; border: 1px solid #312e81; }
+        header h1 { font-size: 2.2rem; margin-bottom: 5px; }
+        header p { color: var(--blue); }
+        .title { font-size: 1.4rem; margin: 25px 0 15px; border-left: 4px solid var(--green); padding-left: 10px; }
+        .grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+        .card { background: var(--card); padding: 15px; border-radius: 8px; flex: 1; min-width: 150px; text-align: center; border: 1px solid #334155; }
+        .role { color: var(--green); font-size: 0.85rem; font-weight: bold; margin-top: 5px; }
+        .btn-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+        .btn { background: var(--card); color: var(--muted); border: 1px solid #334155; padding: 12px; border-radius: 6px; cursor: pointer; font-weight: bold; flex: 1; min-width: 140px; text-align: center; }
+        .btn.active { background: var(--blue); color: var(--bg); border-color: var(--blue); }
+        .panel { display: none; background: var(--card); padding: 25px; border-radius: 12px; border: 1px solid #334155; margin-top: 15px; }
+        .panel.active { display: block; }
+        .specs { background: rgba(15,23,42,0.5); padding: 15px; border-radius: 8px; margin-top: 15px; border: 1px dashed #475569; }
+        .specs h4 { color: var(--green); margin-bottom: 5px; }
+        .specs li { margin-left: 20px; margin-bottom: 5px; list-style-type: "⚡ "; }
+        footer { text-align: center; margin-top: 40px; padding: 20px; color: var(--muted); border-top: 1px solid #1e293b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
-
 <div class="container">
-
-    <!-- Header Section -->
-    <header>
-        <h1>Renewable Society</h1>
-        <p>Engineering Sustainable Infrastructure Solutions for Smart Cities</p>
-    </header>
-
-    <!-- Team Members Layout Section -->
-    <section class="team-section">
-        <h2 class="section-title">Our Research & Design Team</h2>
-        <div class="team-grid">
-            <div class="member-card">
-                <div class="member-name">Rohil</div>
-                <div class="member-role">Team Leader</div>
-            </div>
-            <div class="member-card">
-                <div class="member-name">Rishit</div>
-                <div class="member-role">Vice Leader</div>
-            </div>
-            <div class="member-card">
-                <div class="member-name">Ryan</div>
-                <div class="member-role">Core Member</div>
-            </div>
-            <div class="member-card">
-                <div class="member-name">Aditya</div>
-                <div class="member-role">Core Member</div>
-            </div>
-            <div class="member-card">
-                <div class="member-name">Kovid</div>
-                <div class="member-role">Core Member</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- System Innovations Showcase Tabs -->
-    <section class="innovations-section">
-        <h2 class="section-title">Eco-Friendly Innovations</h2>
-        
-        <!-- Interactive Navigation Menu Links -->
-        <div class="tabs-nav">
-            <button class="tab-btn active" onclick="switchTab(event, 'wind')">Wind Turbine</button>
-            <button class="tab-btn" onclick="switchTab(event, 'solar')">Solar Housing</button>
-            <button class="tab-btn" onclick="switchTab(event, 'dustbin')">Smart Dustbin</button>
-            <button class="tab-btn" onclick="switchTab(event, 'charging')">Wireless Charging</button>
-            <button class="tab-btn" onclick="switchTab(event, 'alarm')">Fire Alarm System</button>
-        </div>
-
-        <!-- Tab Content Component 1: Wind Turbine -->
-        <div id="wind" class="tab-panel active">
-            <div class="panel-header">
-                <span class="panel-icon">🌪️</span>
-                <h3>Vertical Passing-Car Wind Turbine</h3>
-            </div>
-            <div class="panel-content">
-                <p>This innovative setup converts immediate kinetic air currents generated by speeding highway traffic into green electric power. As cars zip past the installation, localized artificial draft patterns reliably turn specialized vertical-axis turbine structures to safely supply eco-friendly current directly to public streetlights.</p>
-                <div class="tech-specs">
-                    <h4>Engineering Framework & Components</h4>
-                    <ul>
-                        <li>High-sensitivity vertical-axis blade rotors designed for immediate, multi-directional airflow capture.</li>
-                        <li>Internal mini generator hub module converts continuous kinetic rotations directly into electrical voltage.</li>
-                        <li>Automated relay nodes switch roadside streetlamps on when ambient evening darkness triggers circuit criteria.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
- <!-- Tab Content Component 2: Solar Housing -->
-        <div id="solar" class="tab-panel">
-            <div class="panel-header">
-                <span class="panel-icon">☀️</span>
-                <h3>Solar Panel Residential Housing</h3>
-            </div>
-            <div class="panel-content">
-                <p>This localized system reduces external grid strain via modern photovoltaic technology. High-capacity structural rooftop arrays actively absorb standard sunlight throughout bright daytime hours to power interior LED illumination architectures reliably all night long.</p>
-                <div class="tech-specs"> 
-                    <h4>Engineering Framework & Components</h4>
-                <ul>
-                    <li>Highly efficient crystalline solar panels securely attached to south-facing building roof areas.</li>
-                    <li>Compact integrated energy-storage cells store daylight currents safely for delayed household usage.</li>
-                    <li>High-efficiency internal LED arrays minimize power demands while providing excellent brightness.</li>
-                </ul>
-            </div>
-        </div>
-<!-- Tab Content Component 3: Smart Dustbin -->
-        <div id="dustbin" class="tab-panel">
-            <div class="panel-header">
-                <span class="panel-icon">🗑️</span>
-                <h3>IR-Sensor Smart Waste Bin</h3>
-            </div>
-            <div class="panel-content">
-                <p>Our automation system prevents urban trash bins from spilling over and polluting local neighborhoods. Active non-contact infrared telemetry tracking measures fill thresholds continuously to prompt real-time audio notifications when trash reaches maximum capacity.</p>
-                <div class="tech-specs">
-                    <h4>Engineering Framework & Components</h4>
-                    <ul>
-                        <li>Infrared (IR) emitter-receiver array modules mounted neatly inside upper lid enclosures.</li>
-                        <li>Microcontroller board measures real-time reflection distances to determine exactly how full the bin is.</li>
-                        <li>Piezo buzzer alert component emits periodic warning sounds when debris blocks the threshold.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-  <!-- Tab Content Component 4: Wireless Charging -->
-        <div id="charging" class="tab-panel">
-            <div class="panel-header">
-                <span class="panel-icon">🚗</span>
-                <h3>Copper-Coil Wireless Car Charging</h3>
-            </div>
-            <div class="panel-content">
-                <p>This setup uses electromagnetic induction principles to charge moving electric vehicles without relying on physical power cords. Specially structured induction pad arrays transmit electric power smoothly across short distances right through the air to vehicles parked or driving over them.</p>
-                <div class="tech-specs">
-                    <h4>Engineering Framework & Components</h4>
-                    <ul>
-                        <li>Heavy-duty ground transmitter pads made of tightly wound copper coils beneath road surfaces.</li>
-                        <li>Matching copper receiver coils attached to the underside of vehicle chassis structures.</li>
-                        <li>High-frequency alternating current setups generate changing magnetic fields for safe energy transfer.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-  <!-- Tab Content Component 5: Fire Alarm System -->
-        <div id="alarm" class="tab-panel">
-            <div class="panel-header">
-                <span class="panel-icon">🚨</span>
-                <h3>Automated Fire Alarm System</h3>
-            </div>
-            <div class="panel-content">
-                <p>This immediate-response safety system protects the community from sudden structural fire hazards. Built-in thermal wave and optical detection sensors identify fires early to trigger alarms and give families plenty of time to evacuate safely.</p>
-                <div class="tech-specs">
-                    <h4>Engineering Framework & Components</h4>
-                    <ul>
-                        <li>High-accuracy flame photo-sensors detect explicit infrared wavelengths from open fire sources.</li>
-                        <li>Smart processing controller filters out accidental triggers like flashlights or regular indoor lamps.</li>
-                        <li>High-decibel emergency alarms sound instantly when real fires are detected.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Renewable Society Project - Formulated by Rohil, Rishit, Ryan, Aditya, and Kovid.</p>
-    </footer>
+    <header><h1>Renewable Society</h1><p>Engineering Sustainable Infrastructure Solutions</p></header>
+    <h2 class="title">Our Research & Design Team</h2>
+    <div class="grid">
+        <div class="card"><div>Rohil</div><div class="role">Team Leader</div></div>
+        <div class="card"><div>Rishit</div><div class="role">Vice Leader</div></div>
+        <div class="card"><div>Ryan</div><div class="role">Core Member</div></div>
+        <div class="card"><div>Aditya</div><div class="role">Core Member</div></div>
+        <div class="card"><div>Kovid</div><div class="role">Core Member</div></div>
+    </div>
+    <h2 class="title">Eco-Friendly Innovations</h2>
+    <div class="btn-nav">
+        <button class="btn active" onclick="tab(event, 'wind')">Wind Turbine</button>
+        <button class="btn" onclick="tab(event, 'solar')">Solar Housing</button>
+        <button class="btn" onclick="tab(event, 'dustbin')">Smart Dustbin</button>
+        <button class="btn" onclick="tab(event, 'charging')">Wireless Charging</button>
+        <button class="btn" onclick="tab(event, 'alarm')">Fire Alarm System</button>
+    </div>
+    <div id="wind" class="panel active"><h3>🌪️ Vertical Turbine</h3><p>Converts highway traffic air currents into electric power.</p></div>
+    <div id="solar" class="panel"><h3>☀️ Solar Housing</h3><p>Rooftop panels for energy self-sufficiency.</p></div>
+    <div id="dustbin" class="panel"><h3>🗑️ Smart Dustbin</h3><p>IR sensors detect fill levels to optimize collection.</p></div>
+    <div id="charging" class="panel"><h3>🚗 Wireless Charging</h3><p>Copper-coil induction for EVs.</p></div>
+    <div id="alarm" class="panel"><h3>🚨 Fire Alarm</h3><p>Thermal sensors for early detection.</p></div>
+    <footer><p>&copy; 2026 Renewable Society Project</p></footer>
 </div>
-
 <script>
-    function switchTab(event, tabId) {
-        // Hide all information panels
-        const panels = document.querySelectorAll('.tab-panel');
-        panels.forEach(panel => panel.classList.remove('active'));
-
-        // Deactivate all menu navigation buttons
-        const buttons = document.querySelectorAll('.tab-btn');
-        buttons.forEach(btn => btn.classList.remove('active'));
-
-        // Instantly display selected panel and light up clicked button
-        document.getElementById(tabId).classList.add('active');
-        event.currentTarget.classList.add('active');
+    function tab(e, id) {
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        e.currentTarget.classList.add('active');
     }
 </script>
-
 </body>
 </html>
