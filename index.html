@@ -355,7 +355,7 @@
             </div>
         </div>
 
-        <!-- Tab Content Component 5: Fire Alarm -->
+        <!-- Tab Content Component 5: Fire Alarm System -->
         <div id="alarm" class="tab-panel">
             <div class="panel-header">
                 <span class="panel-icon">🚨</span>
@@ -382,12 +382,15 @@
 
 <script>
     function switchTab(event, tabId) {
+        // Hide all information panels
         const panels = document.querySelectorAll('.tab-panel');
         panels.forEach(panel => panel.classList.remove('active'));
 
+        // Deactivate all menu navigation buttons
         const buttons = document.querySelectorAll('.tab-btn');
         buttons.forEach(btn => btn.classList.remove('active'));
 
+        // Instantly display selected panel and light up clicked button
         document.getElementById(tabId).classList.add('active');
         event.currentTarget.classList.add('active');
     }
@@ -395,4 +398,3 @@
 
 </body>
 </html>
-       
